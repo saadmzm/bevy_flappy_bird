@@ -19,8 +19,8 @@ pub(super) fn spawn_pipe(
         return;
     }
 
-    let mut rng = rand::thread_rng();
-    let y = rng.gen_range(-50.0..50.0);
+    let mut rng = rand::rng();
+    let y = rng.random_range(-50.0..50.0);
 
     let texture = asset_server.load("sprites/pipe.png");
 
