@@ -1,6 +1,6 @@
 use super::BIRD_Z;
 use crate::{game_over::DespawnOnReset, has_user_input, GameState, Ground, Scroll, GROUND_WIDTH};
-use crate::{AudioHandles, BIRD_SIZE};
+use crate::{AudioHandles, BIRD_SIZE2};
 use bevy::prelude::*;
 use bird::Bird;
 
@@ -99,21 +99,21 @@ fn game_setup(
 ) {
     // Load the bird sprite sheet and create a texture atlas from it
     let atlas_layout =
-        texture_atlases.add(TextureAtlasLayout::from_grid(BIRD_SIZE, 4, 1, None, None));
+        texture_atlases.add(TextureAtlasLayout::from_grid(BIRD_SIZE2, 4, 1, None, None));
 
     // Spawn the bird
     commands.spawn((
         Bird::default(),
         DespawnOnReset,
-        SpriteSheetBundle {
-            atlas: TextureAtlas {
-                layout: atlas_layout,
-                index: 0,
-            },
+        SpriteBundle {
             texture: asset_server.load("sprites/bird.png"),
             transform: Transform::from_xyz(0.0, 0.0, BIRD_Z),
-            ..Default::default()
+            ..default()
         },
+        TextureAtlas {
+            layout: atlas_layout,
+            index: 0,
+        }
     ));
 
     // Spawn the score UI

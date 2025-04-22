@@ -15,6 +15,7 @@ const BIRD_Z: f32 = 3.0;
 const UI_Z: f32 = 4.0;
 
 const BIRD_SIZE: Vec2 = Vec2::new(34.0, 24.0);
+const BIRD_SIZE2: UVec2 = UVec2::new(34, 24);
 const PIPE_SIZE: Vec2 = Vec2::new(52.0, 320.0);
 const GROUND_WIDTH: f32 = 336.0;
 
